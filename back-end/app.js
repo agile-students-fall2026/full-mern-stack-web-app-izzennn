@@ -77,6 +77,26 @@ app.post('/messages/save', async (req, res) => {
     })
   }
 })
-
+// a route to handle fetching the About Us page content
+app.get('/about', async (req, res) => {
+  try {
+    res.json({
+      name: 'Izen',
+      paragraphs: [
+        "Hi, I'm Izen, a third-year Computer Science student at NYU Abu Dhabi. This fall I'm spending the semester at NYU in New York.",
+        "Outside of classes, I work as a research assistant at the eBRAIN Lab, where I work on machine learning for cybersecurity. I'm especially interested in security and want to build a career in it.",
+        "In my free time I like building small projects to learn new things. One of my favorites was making my own version of the game Akinator in C++ using Bayes' theorem.",
+      ],
+      imageUrl: 'https://github.com/izzennn.png',
+      status: 'all good',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve the about us content',
+    })
+  }
+})
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
