@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import loadingIcon from './loading.gif'
-import './AboutUs.css'
 
 /**
  * A React component that shows the About Us page.
